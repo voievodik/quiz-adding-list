@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AddQuestion } from "./components/AddQuestion"
 import { StartQuestion } from "./components/StartQuestion"
 import data from './mock-data.json';
 import './app.css';
 
+const getDataLocal = () => {
+  const localData = localStorage.getItem("questions");
+  if(localData) return JSON.parse(localData);
+  else return data;
+}
+
 function App() {
-  const [questions, setQuestions] = useState(data);
+  const [questions, setQuestions] = useState(getDataLocal());
   const [startQuiz, setStartQuiz] = useState(false);
   const [number, setNumber] = useState(-1);
   
@@ -13,6 +19,10 @@ function App() {
     setStartQuiz(!startQuiz);
     !startQuiz && setNumber(0);
   }  
+
+  useEffect(() => {
+    localStorage.setItem("questions", JSON.stringify(questions));
+  }, [questions]);
 
   return (
     <div className="app">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { InputValue } from './InputValue';
 import './addQuestion.css';
 
@@ -52,8 +52,11 @@ export const AddQuestion = ({ questions, setQuestions}) => {
       })
   }
 
-//   console.log(questions)
-//   console.log(questions.reverse())
+//   useEffect(() => {
+//     localStorage.setItem("questions", JSON.stringify(questions));
+//   }, [questions]);
+
+
   return (
     <div className='wrapper'>
         <div className='form-add'>
