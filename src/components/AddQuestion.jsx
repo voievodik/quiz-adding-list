@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { InputValue } from './InputValue';
+import './addQuestion.css';
 
 export const AddQuestion = ({ questions, setQuestions}) => {
   const [addQuestion, setAddQuestion] = useState({
@@ -50,14 +52,70 @@ export const AddQuestion = ({ questions, setQuestions}) => {
       })
   }
 
-
+//   console.log(questions)
+//   console.log(questions.reverse())
   return (
-    <div>
-        <div>
-            {questions.map(item => (
+    <div className='wrapper'>
+        <div className='form-add'>
+            <form className='form' onSubmit={handleAddQuestionClick}>
+                <InputValue
+                    text="Question answer"
+                    type='text'
+                    name='question'
+                    placeholder='Enter a question'
+                    value={addQuestion.question}
+                    onChange={e => handleQuestionOnChange(e)}
+                    required
+                />
+                <InputValue 
+                    text="Correct answer"
+                    type="text" 
+                    name="answer1" 
+                    placeholder='Enter a correct answer' 
+                    value={addQuestion.answer1}
+                    onChange={e => handleQuestionOnChange(e)}
+                    required
+                />
+                <InputValue
+                    text="Wrong answer" 
+                    type="text" 
+                    name="answer2" 
+                    placeholder='Enter a wrong answer' 
+                    value={addQuestion.answer2}
+                    onChange={e => handleQuestionOnChange(e)}
+                    required
+                />
+                <InputValue 
+                    text="Wrong answer"
+                    type="text" 
+                    name="answer3" 
+                    placeholder='Enter a wrong answer' 
+                    value={addQuestion.answer3}
+                    onChange={e => handleQuestionOnChange(e)}
+                    required
+                />
+                <InputValue 
+                    text="Wrong answer"
+                    type="text" 
+                    name="answer4" 
+                    placeholder='Enter a wrong answer' 
+                    value={addQuestion.answer4}
+                    onChange={e => handleQuestionOnChange(e)}
+                    required
+                />
                 <div>
-                    <h3>{item.question}</h3>
-                    <ul>
+
+                <button className='button-add'>Add Question</button>
+                </div>
+            </form>
+        </div>
+
+        <div className='question-add'>
+            <h1 className='title'>List of questions</h1>
+            {[...questions].reverse().map(item => (
+                <div className="item-question">
+                    <h3 className='title-question'>{item.question}</h3>
+                    <ul className='list-answers'>
                         <li>{item.answers.answer1.text}</li>
                         <li>{item.answers.answer2.text}</li>
                         <li>{item.answers.answer3.text}</li>
@@ -66,59 +124,6 @@ export const AddQuestion = ({ questions, setQuestions}) => {
                 </div>
             ))}
         </div>
-
-        <div>
-            <form onSubmit={handleAddQuestionClick}>
-                <input 
-                    type="text" 
-                    name="question" 
-                    placeholder='Enter a question'
-                    value={addQuestion.question}
-                    onChange={e => handleQuestionOnChange(e)}
-                    required
-                />
-                <input 
-                    type="text" 
-                    name="answer1" 
-                    placeholder='Enter a correct answer' 
-                    value={addQuestion.answer1}
-                    onChange={e => handleQuestionOnChange(e)}
-                    required
-                />
-                <input 
-                    type="text" 
-                    name="answer2" 
-                    placeholder='Enter a wrong answer' 
-                    value={addQuestion.answer2}
-                    onChange={e => handleQuestionOnChange(e)}
-                    required
-                />
-                <input 
-                    type="text" 
-                    name="answer3" 
-                    placeholder='Enter a wrong answer' 
-                    value={addQuestion.answer3}
-                    onChange={e => handleQuestionOnChange(e)}
-                    required
-                />
-                <input 
-                    type="text" 
-                    name="answer4" 
-                    placeholder='Enter a wrong answer' 
-                    value={addQuestion.answer4}
-                    onChange={e => handleQuestionOnChange(e)}
-                    required
-                />
-                <button>Add Question</button>
-            </form>
-        </div>
-
-        {/* <div>
-            {addQuestion.answer1}
-            {addQuestion.answer2}
-            {addQuestion.answer3}
-            {addQuestion.answer4}
-        </div> */}
     </div>
   )
 }
