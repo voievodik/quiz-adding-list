@@ -1,0 +1,66 @@
+[
+    {
+        "question": "Inside which HTML element do we put the JavaScript?",
+        "answers": {
+            "answer1": {
+                "text":"<script>",
+                "correct": true
+            },
+            "answer2": {
+                "text":"<js>",
+                "correct": false
+            },
+            "answer3": {
+                "text":"<scripting>",
+                "correct": false
+            },
+            "answer4": {
+                "text":"<javascript>",
+                "correct": false
+            }
+        }
+    },
+    {
+        "question": "Which of the followings are primitive data types in JavaScript",
+        "answers": {
+            "answer1": {
+                "text":"All of the above",
+                "correct": true
+            },
+            "answer2": {
+                "text":"Number",
+                "correct": false
+            },
+            "answer3": {
+                "text":"String",
+                "correct": false
+            },
+            "answer4": {
+                "text":"Boolean",
+                "correct": false
+            }
+        }
+    },
+    {
+        "question": "What will 1 == '1' return",
+        "answers": {
+            "answer1": {
+                "text":"True",
+                "correct": true
+            },
+            "answer2": {
+                "text":"False",
+                "correct": false
+            },
+            "answer3": {
+                "text":"0",
+                "correct": false
+            },
+            "answer4": {
+                "text":"1",
+                "correct": false
+            }
+        }
+    }
+]
+
