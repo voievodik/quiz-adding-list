@@ -41,6 +41,13 @@ export const AddQuestion = ({ questions, setQuestions}) => {
     }
 
     setQuestions([...questions, newQuestion])
+    setAddQuestion({
+        question: '',
+        answer1: '',
+        answer2: '',
+        answer3: '',
+        answer4: ''
+      })
   }
 
 
@@ -65,7 +72,8 @@ export const AddQuestion = ({ questions, setQuestions}) => {
                 <input 
                     type="text" 
                     name="question" 
-                    placeholder='Enter a question' 
+                    placeholder='Enter a question'
+                    value={addQuestion.question}
                     onChange={e => handleQuestionOnChange(e)}
                     required
                 />
@@ -73,6 +81,7 @@ export const AddQuestion = ({ questions, setQuestions}) => {
                     type="text" 
                     name="answer1" 
                     placeholder='Enter a correct answer' 
+                    value={addQuestion.answer1}
                     onChange={e => handleQuestionOnChange(e)}
                     required
                 />
@@ -80,6 +89,7 @@ export const AddQuestion = ({ questions, setQuestions}) => {
                     type="text" 
                     name="answer2" 
                     placeholder='Enter a wrong answer' 
+                    value={addQuestion.answer2}
                     onChange={e => handleQuestionOnChange(e)}
                     required
                 />
@@ -87,6 +97,7 @@ export const AddQuestion = ({ questions, setQuestions}) => {
                     type="text" 
                     name="answer3" 
                     placeholder='Enter a wrong answer' 
+                    value={addQuestion.answer3}
                     onChange={e => handleQuestionOnChange(e)}
                     required
                 />
@@ -94,6 +105,7 @@ export const AddQuestion = ({ questions, setQuestions}) => {
                     type="text" 
                     name="answer4" 
                     placeholder='Enter a wrong answer' 
+                    value={addQuestion.answer4}
                     onChange={e => handleQuestionOnChange(e)}
                     required
                 />
